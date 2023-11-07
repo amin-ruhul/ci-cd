@@ -1,0 +1,8 @@
+version: "3"
+
+services:
+  next-js:
+    image: ghcr.io/amin-ruhul/ci-cd:latest
+    container_name: nextjs
+    ports:
+      - 4000:3000
