@@ -26,14 +26,17 @@ jobs:
           touch .env
           echo "BASE_URL=${{ secrets.BASE_URL }}" > .env
           cat .env
+        shall: bash
 
       - name: Create .env.local file
         run: |
           touch .env.local
           echo "NEXT_PUBLIC_BASE_URL=${{ secrets.BASE_URL }}" > .env.local
           echo "NEXT_PUBLIC_PORT=${{ secrets.PORT }}" >> .env.local
-          echo "NEXT_PUBLIC_API=$API" >> .local.env
+          echo "NEXT_PUBLIC_API=$API" >> .env.local
           cat .env.local
+          echo $API
+        shell: bash
 
       - name: Log in to the github container registry
         uses: docker/login-action@v3
