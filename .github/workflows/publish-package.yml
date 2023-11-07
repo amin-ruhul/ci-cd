@@ -31,7 +31,8 @@ jobs:
         run: |
           touch .env.local
           echo "NEXT_PUBLIC_BASE_URL=${{ secrets.BASE_URL }}" > .env.local
-          echo "NEXT_PUBLIC_PORT=${{ secrets.PORT }}" > .env.local
+          echo "NEXT_PUBLIC_PORT=${{ secrets.PORT }}" >> .env.local
+          echo "NEXT_PUBLIC_API=$API" >> .local.env
           cat .env.local
 
       - name: Log in to the github container registry
